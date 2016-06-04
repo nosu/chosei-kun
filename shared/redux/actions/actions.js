@@ -16,6 +16,18 @@ export function addPost(post) {
   };
 }
 
+export function addEvent(event) {
+  return {
+    type: ActionTypes.ADD_EVENT,
+    eventId: event.eventId,
+    title: event.title,
+    memo: event.memo,
+    dates: event.dates,
+    members: event.members,
+    _id: post._id,
+  };
+}
+
 export function changeSelectedPost(slug) {
   return {
     type: ActionTypes.CHANGE_SELECTED_POST,
@@ -78,6 +90,14 @@ export function fetchPosts() {
     return fetch(`${baseURL}/api/getPosts`).
       then((response) => response.json()).
       then((response) => dispatch(addPosts(response.posts)));
+  };
+}
+
+export function fetchEvents() {
+  return (dispatch) => {
+    return fetch(`${baseURL}/api/getEvents`).
+      then((response) => response.json()).
+      then((response) => dispatch(addEvents(response.events)));
   };
 }
 
