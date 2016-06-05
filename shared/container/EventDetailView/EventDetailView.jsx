@@ -26,11 +26,11 @@ class EventDetailView extends Component {
   render() {
     return (
       <div>
-        <Helmet title={this.props.post.title} />
+        <Helmet title={this.props.event.title} />
 
         <Header onClick={function noop() {}} handleLogoClick={this.handleLogoClick}/>
         <div className="container">
-          <div className="single-post post-detail">
+          <div className="single-event post-detail">
             <h3 className="post-title">{this.props.post.title}</h3>
             <p className="author-name">By {this.props.post.name}</p>
             <p className="post-desc">{this.props.post.content}</p>
@@ -43,7 +43,7 @@ class EventDetailView extends Component {
 }
 
 EventDetailView.need = [(params) => {
-  return Actions.getEventRequest.bind(null, params.slug)();
+  return Actions.getEventRequest.bind(null, params.eventId)();
 }];
 
 EventDetailView.contextTypes = {
@@ -51,19 +51,19 @@ EventDetailView.contextTypes = {
 };
 
 EventDetailView.propTypes = {
-  post: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+  event: PropTypes.shape({
+    eventId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    cuid: PropTypes.string.isRequired,
+    // memo: PropTypes.string.isRequired,
+    dates: PropTypes.array.isRequired,
+    members: PropTypes.array.isRequired,
   }).isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(store) {
   return {
-    post: (store.post),
+    event: (store.event),
   };
 }
 

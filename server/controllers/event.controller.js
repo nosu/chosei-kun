@@ -32,6 +32,7 @@ export function addEvent(req, res) {
 }
 
 export function getEvent(req, res) {
+  console.log('API getEvent req.params: ', req.params);
   const eventId = req.params.eventId;
   Event.findOne({ eventId: eventId }).exec((err, event) => {
     if (err) {

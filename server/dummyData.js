@@ -7,12 +7,6 @@ export default function () {
       return;
     }
 
-    const content1 = `Sed ut perspiciatis unde omnis iste natus error
-      est laborum`;
-
-    const content2 = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-      ipsum quia dolor sit amet.`;
-
     const event1 = new Event({
       title: '忘年会',
       memo: '忘年会の予定調整です',

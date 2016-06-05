@@ -5,7 +5,7 @@ const router = new Router();
 // Get all Events
 router.route('/getEvents').get(EventController.getEvents);
 
-// Get one event by cuid
+// Get one event by eventId
 router.route('/getEvent/:eventId').get(EventController.getEvent);
 
 // Add a new Event
