@@ -11,6 +11,8 @@ class EventDetailView extends Component {
     super(props, context);
     this.handleClick = this.handleClick.bind(this);
     this.handleLogoClick = this.handleLogoClick.bind(this);
+    this.handleUpdateButtonClick = this.handleUpdateButtonClick.bind(this);
+    this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
   }
 
   handleClick() {
@@ -23,6 +25,18 @@ class EventDetailView extends Component {
     this.props.dispatch(Actions.fetchEvents());
   }
 
+  handleUpdateButtonClick() {
+  }
+
+  handleAddButtonClick() {
+    console.log('add');
+  }
+
+  convertNumberIntoSymbol(number) {
+    var symbolMap = ['○', '△', '×'];
+    return symbolMap[number];
+  }
+
   render() {
     return (
       <div>
@@ -30,12 +44,44 @@ class EventDetailView extends Component {
 
         <Header onClick={function noop() {}} handleLogoClick={this.handleLogoClick}/>
         <div className="container">
-          <div className="single-event post-detail">
-            {/*<h3 className="post-title">{this.props.post.title}</h3>
-            <p className="author-name">By {this.props.post.name}</p>
-            <p className="post-desc">{this.props.post.content}</p>*/}
+          <div className="event-detail">
+            <h3 className="event-title">{this.props.event.title}</h3>
+            <p className="event-memo">{this.props.event.memo}</p>
+            <table className="schedule-table">
+              <thead>
+                <tr>
+                  <th>日程</th>
+                  {
+                    this.props.event.members.map((member) => {
+                      return (
+                        <th>
+                          <a href="#" onClick={e => this.handleUpdateButtonClick}>{member.name}</a>
+                        </th>
+                      );
+                    })
+                  }
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  this.props.event.dates.map((date, index) => {
+                    var rows = [<th>{date}</th>];
+                    this.props.event.members.forEach((member) => {
+                      rows.push(
+                        <td>{this.convertNumberIntoSymbol(member.schedule[index])}</td>
+                      );
+                    });
+                    return <tr>{rows}</tr>;
+                  })
+                }
+              </tbody>
+            </table>
+            <div className="add-schedule">
+              <input type="button" onClick={e => handleAddButtonClick} className="add-schedule-button" value="出欠を入力する"/>
+            </div>
           </div>
         </div>
+
         <Footer />
       </div>
     );

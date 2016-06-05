@@ -8,6 +8,7 @@ const routes = (
   <Route path="/" component={App} >
     <IndexRoute component={EventContainer} />
     <Route path="/event/:eventId" component={EventDetailView}/>
+    {/* <Route path="*" component={NotFound}/> */}
   </Route>
 );
 

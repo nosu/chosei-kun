@@ -3,8 +3,8 @@ import React from 'react';
 function Footer() {
   return (
    <div className="footer">
-     <p>&copy; 2016 &middot; Hashnode &middot; LinearBytes Inc.</p>
-     <p>We are on Twitter : <a href="https://twitter.com/@mern_io" target="_Blank">@mern_io</a></p>
+     <p>&copy; 2016 &middot; nosu</p>
+     <p>Github: <a href="https://github.com/nosu" target="_Blank">@nosu</a></p>
    </div>
  );
 }
