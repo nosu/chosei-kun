@@ -31,9 +31,9 @@ class EventDetailView extends Component {
         <Header onClick={function noop() {}} handleLogoClick={this.handleLogoClick}/>
         <div className="container">
           <div className="single-event post-detail">
-            <h3 className="post-title">{this.props.post.title}</h3>
+            {/*<h3 className="post-title">{this.props.post.title}</h3>
             <p className="author-name">By {this.props.post.name}</p>
-            <p className="post-desc">{this.props.post.content}</p>
+            <p className="post-desc">{this.props.post.content}</p>*/}
           </div>
         </div>
         <Footer />

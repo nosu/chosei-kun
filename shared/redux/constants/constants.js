@@ -1,6 +1,13 @@
-export const ADD_POST = 'ADD_POST';
-export const CHANGE_SELECTED_POST = 'CHANGE_SELECTED_POST';
-export const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
-export const ADD_POSTS = 'ADD_POSTS';
-export const ADD_SELECTED_POST = 'ADD_SELECTED_POST';
-export const DELETE_POST = 'DELETE_POST';
+// export const ADD_EVENT = 'ADD_EVENT';
+// export const CHANGE_SELECTED_EVENT = 'CHANGE_SELECTED_EVENT';
+// export const ADD_EVENT_REQUEST = 'ADD_EVENT_REQUEST';
+// export const ADD_EVENTS = 'ADD_EVENTS';
+// export const ADD_SELECTED_EVENT = 'ADD_SELECTED_EVENT';
+// export const DELETE_EVENT = 'DELETE_EVENT';
+
+export const ADD_EVENT = 'ADD_EVENT';
+export const CHANGE_SELECTED_EVENT = 'CHANGE_SELECTED_EVENT';
+export const ADD_EVENT_REQUEST = 'ADD_EVENT_REQUEST';
+export const ADD_EVENTS = 'ADD_EVENTS';
+export const ADD_SELECTED_EVENT = 'ADD_SELECTED_EVENT';
+export const DELETE_EVENT = 'DELETE_EVENT';
