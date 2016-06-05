@@ -1,6 +1,5 @@
 import Event from '../models/event';
 import cuid from 'cuid';
-// import slug from 'slug';
 import sanitizeHtml from 'sanitize-html';
 
 export function getEvents(req, res) {

@@ -1,8 +1,8 @@
 import * as ActionTypes from '../constants/constants';
 
-const initialState = { posts: [], post: null, events: [], event: null };
+const initialState = { events: [], event: null };
 
-const postReducer = (state = initialState, action) => {
+const eventReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.ADD_EVENT :
       return {
@@ -44,4 +44,4 @@ const postReducer = (state = initialState, action) => {
   }
 };
 
-export default postReducer;
+export default eventReducer;
