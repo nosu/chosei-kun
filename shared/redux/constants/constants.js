@@ -4,3 +4,6 @@ export const ADD_EVENT_REQUEST = 'ADD_EVENT_REQUEST';
 export const ADD_EVENTS = 'ADD_EVENTS';
 export const ADD_SELECTED_EVENT = 'ADD_SELECTED_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
+export const SHOW_ADD_FORM = 'SHOW_ADD_FORM';
+export const SHOW_UPDATE_FORM = 'SHOW_UPDATE_FORM';
+export const HIDE_FORM = 'HIDE_FORM';

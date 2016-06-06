@@ -102,7 +102,7 @@ app.use((req, res, next) => {
       return next();
     }
 
-    const initialState = { events: [], event: {} };
+    const initialState = { events: [], event: {}, form: "ADD_FORM" };
 
     const store = configureStore(initialState);
 

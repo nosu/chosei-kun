@@ -29,7 +29,7 @@ class EventDetailView extends Component {
   }
 
   handleAddButtonClick() {
-    console.log('add');
+    this.props.dispatch(Actions.showAddForm("ADD_FORM"));
   }
 
   convertNumberIntoSymbol(number) {
@@ -76,11 +76,57 @@ class EventDetailView extends Component {
                 }
               </tbody>
             </table>
-            <div className="add-schedule">
-              <input type="button" onClick={e => handleAddButtonClick} className="add-schedule-button" value="出欠を入力する"/>
-            </div>
+            {(() => {
+              if(!this.props.form) {
+                return (
+                  <div className="add-schedule">
+                    <input type="button" onClick={this.handleAddButtonClick} className="add-schedule-button" value="出欠を入力する"/>
+                  </div>
+                );
+              }
+            })()}
           </div>
-        </div>
+            {(() => {
+              switch (this.props.form) {
+                case "ADD_FORM":
+                  return (
+                    <div>
+                      <form className="form add-form">
+                        <input name="name" type="text" placeholder="表示名" />
+                        <input name="memo" type="text" placeholder="イベントメモ" />
+                        <table>
+                          {
+                            this.props.event.dates.map((date) => {
+                              return (
+                                <tr>
+                                  <th>{date}</th>
+                                  <td>
+                                    <div className="button-ok">○</div>
+                                    <div className="button-maybe">△</div>
+                                    <div className="button-ng">×</div>
+                                  </td>
+                                </tr>
+                              );
+                            })
+                          }
+                        </table>
+                        <div className="add-schedule">
+                          <input type="button" className="add-schedule-button" value="出欠を登録する" />
+                        </div>
+                      </form>
+                    </div>
+                  );
+
+                case "UPDATE_FORM":
+                  return (
+                    <div></div>
+                  );
+
+                default:
+                  return (<div>this.props.form: {this.props.form}</div>);
+              }
+            })()}
+          </div>
 
         <Footer />
       </div>
@@ -110,6 +156,7 @@ EventDetailView.propTypes = {
 function mapStateToProps(store) {
   return {
     event: (store.event),
+    form: (store.form),
   };
 }
 

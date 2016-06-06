@@ -93,3 +93,10 @@ export function deleteEventRequest(event) {
       .then(() => dispatch(deletePost(post)));
   };
 }
+
+export function showAddForm(form) {
+  return {
+    type: ActionTypes.SHOW_ADD_FORM,
+    form,
+  };
+}

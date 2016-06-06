@@ -1,6 +1,6 @@
 import * as ActionTypes from '../constants/constants';
 
-const initialState = { events: [], event: null };
+const initialState = { events: [], event: null, form: null };
 
 const eventReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -36,7 +36,28 @@ const eventReducer = (state = initialState, action) => {
 
     case ActionTypes.DELETE_EVENT :
       return {
-        posts: state.events.filter((event) => event.eventId !== action.event.eventId),
+        events: state.events.filter((event) => event.eventId !== action.event.eventId),
+      };
+
+    case ActionTypes.SHOW_ADD_FORM :
+      return {
+        form: "ADD_FORM",
+        event: state.event,
+        events: state.events,
+      };
+
+    case ActionTypes.SHOW_UPDATE_FORM :
+      return {
+        form: 'UPDATE_FORM',
+        event: state.event,
+        events: state.events,
+      };
+
+    case ActionTypes.HIDE_FORM :
+      return {
+        form: null,
+        event: state.event,
+        events: state.events,
       };
 
     default:
