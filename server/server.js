@@ -29,7 +29,7 @@ import Helmet from 'react-helmet';
 // Import required modules
 import routes from '../shared/routes';
 import { fetchComponentData } from './util/fetchData';
-import posts from './routes/post.routes';
+import events from './routes/event.routes';
 import dummyData from './dummyData';
 import serverConfig from './config';
 
@@ -48,7 +48,7 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../static')));
-app.use('/api', posts);
+app.use('/api', events);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
@@ -102,7 +102,7 @@ app.use((req, res, next) => {
       return next();
     }
 
-    const initialState = { posts: [], post: {} };
+    const initialState = { events: [], event: {}, form: "ADD_FORM" };
 
     const store = configureStore(initialState);
 

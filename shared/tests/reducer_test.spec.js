@@ -1,77 +1,80 @@
 import expect from 'expect';
-import postReducer from '../redux/reducers/reducer';
+import eventReducer from '../redux/reducers/reducer';
 import deepFreeze from 'deep-freeze';
 import * as ActionTypes from '../redux/constants/constants';
 
 describe('reducer tests', () => {
-  it('action ADD_POST is working', () => {
-    const stateBefore = { posts: ['foo'], post: null };
-    const stateAfter = { posts: [{
-      name: 'prank',
-      title: 'first post',
-      content: 'Hello world!',
+  it('action ADD_EVENT is working', () => {
+    const stateBefore = { events: ['foo'], event: null };
+    const stateAfter = { events: [{
+      title: 'first event',
+      memo: 'Hello world!',
+      dates: [],
+      members: [],
       _id: null,
-      cuid: null,
-      slug: 'first-post',
-    }, 'foo'], post: null };
+      eventId: null,
+    }, 'foo'], event: null };
 
     const action = {
-      type: ActionTypes.ADD_POST,
-      name: 'prank',
-      title: 'first post',
-      content: 'Hello world!',
+      type: ActionTypes.ADD_EVENT,
+      title: 'first event',
+      memo: 'Hello world!',
+      dates: [],
+      members: [],
       _id: null,
-      cuid: null,
-      slug: 'first-post',
+      eventId: null,
     };
     deepFreeze(stateBefore);
     deepFreeze(action);
-    expect(stateAfter).toEqual(postReducer(stateBefore, action));
+    expect(stateAfter).toEqual(eventReducer(stateBefore, action));
   });
 
-  it('action ADD_SELECTED_POST is working', () => {
+  it('action ADD_SELECTED_EVENT is working', () => {
     const stateBefore = {
-      posts: [{
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
+      events: [{
+        title: 'first event',
+        memo: 'Hello world!',
+        dates: [],
+        members: [],
         _id: null,
-        slug: 'first-post',
-
+        eventId: null,
       }],
-      selectedPost: null,
+      selectedEvent: null,
     };
 
     const stateAfter = {
-      posts: [{
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
+      events: [{
+        title: 'first event',
+        memo: 'Hello world!',
+        dates: [],
+        members: [],
         _id: null,
-        slug: 'first-post',
+        eventId: null,
       }],
-      post: {
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
+      event: {
+        title: 'first event',
+        memo: 'Hello world!',
+        dates: [],
+        members: [],
         _id: null,
-        slug: 'first-post',
+        eventId: null,
       },
     };
 
     const action = {
-      type: ActionTypes.ADD_SELECTED_POST,
-      post: {
-        name: 'prank',
-        title: 'first post',
-        content: 'Hello world!',
+      type: ActionTypes.ADD_SELECTED_EVENT,
+      event: {
+        title: 'first event',
+        memo: 'Hello world!',
+        dates: [],
+        members: [],
         _id: null,
-        slug: 'first-post',
+        eventId: null,
       },
     };
 
     deepFreeze(stateBefore);
     deepFreeze(action);
-    expect(stateAfter).toEqual(postReducer(stateBefore, action));
+    expect(stateAfter).toEqual(eventReducer(stateBefore, action));
   });
 });
